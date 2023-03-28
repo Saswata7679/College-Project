@@ -1,5 +1,5 @@
 .banner {
-  background-image: url("../../images/cover.jfif");
+  background-image: url("../../images/11207.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,29 +13,38 @@
 }
 
 .banner > h1 {
-  margin: 5vmax;
+  margin-bottom: 12vmax;
 
   font: 600 2.5vmax "Roboto";
 }
 
 .banner > p {
   font: 300 1.4vmax "Lucida Sans";
+  margin-bottom: 5vmax;
 }
 
 .banner > a > button {
+  color: #ffffff;
+  
   margin-bottom: 5vmax;
   cursor: pointer;
-  background-color: white;
-  border: 1px solid white;
-  border-radius: 0;
-  padding: 1vmax;
+  background-color: transparent;
+  border: 1px ;
+  border-radius: 10%;
   transition: all 0.5s;
   width: 9vmax;
   font: 500 1vmax "Roboto";
 }
 .banner > a > button:hover {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.116);
   color: white;
+  border-radius: 48%;
+}
+
+
+
+.mydiv{
+  padding-bottom: 3px;
 }
 
 .banner::after {
@@ -46,7 +55,7 @@
   position: absolute;
   top: 0%;
   left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
+  clip-path: polygon(100% 100%, 0 100%, 100% 100%);
   max-width: 100%;
 }
 
@@ -75,14 +84,14 @@
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: rgb(48, 48, 48);
+  color: rgb(11, 11, 10);
   margin: 2vmax;
   transition: all 0.5s;
   padding-bottom: 0.5vmax;
 }
 
 .productCard > img {
-  width: 14vmax;
+  width: 15vmax;
 }
 
 .productCard > div {
@@ -112,9 +121,12 @@
 }
 
 .productCard:hover {
-  box-shadow: 0 0 5px rgba(15, 15, 15, 0.26);
+  box-shadow: 0 0 5px rgba(40, 189, 194, 0.26);
 
   transform: translateY(-1vmax);
+}
+.button_home{
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -135,4 +147,9 @@
     margin: 0 0.5vmax;
     font: 300 1vmax "Roboto";
   }
+  
+}
+
+.myButton{
+  text-align: center;
 }

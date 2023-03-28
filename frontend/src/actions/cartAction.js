@@ -8,7 +8,6 @@ import axios from "axios";
 // Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/v1/product/${id}`);
-
   dispatch({
     type: ADD_TO_CART,
     payload: {
@@ -21,6 +20,22 @@ export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
     },
   });
 
+  localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+};
+//add parts to cart
+export const addPartsToCart = (id, quantity) => async (dispatch, getState) => {
+  const { data } = await axios.get(`/api/v1/part/${id}`);
+  dispatch({
+    type: ADD_TO_CART,
+    payload: {
+      product: data.part._id,
+      name: data.part.name,
+      price: data.part.price,
+      image: data.part.images[0].url,
+      stock: data.part.Stock,
+      quantity,
+    },
+  });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 

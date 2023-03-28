@@ -21,9 +21,17 @@
 .ProductDetails > div:last-child {
   align-items: flex-start;
 }
+.centered {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .CarouselImage {
-  width: 20vmax;
+  width: 50vmax;
 }
 
 .detailsBlock-1 > h2 {

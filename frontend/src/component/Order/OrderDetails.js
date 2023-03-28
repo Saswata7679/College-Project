@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect,useState } from "react";
 import "./orderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
@@ -7,8 +7,30 @@ import { Typography } from "@material-ui/core";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
+import Modal from '@mui/material/Modal';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 
 const OrderDetails = ({ match }) => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+
+
   const { order, error, loading } = useSelector((state) => state.orderDetails);
 
   const dispatch = useDispatch();
@@ -89,6 +111,24 @@ const OrderDetails = ({ match }) => {
                     }
                   >
                     {order.orderStatus && order.orderStatus}
+                    {order.orderStatus==="Shipped" && <div>
+          <Button onClick={handleOpen}>SEE DETAILS</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            ATTENTION
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            PLEASE VISIT OUR SHOP IN NEXT 2 TO 5 DAYS
+          </Typography>
+        </Box>
+      </Modal>
+    </div>}
                   </p>
                 </div>
               </div>

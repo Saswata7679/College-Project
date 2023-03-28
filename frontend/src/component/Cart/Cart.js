@@ -41,14 +41,15 @@ const Cart = ({ history }) => {
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
 
-          <Typography>No Product in Your Cart</Typography>
-          <Link to="/products">View Products</Link>
+          <Typography>Your Cart is Empty</Typography>
+          <Link to="/products">View Cars</Link>
+          <Link to="/parts">View Parts</Link>
         </div>
       ) : (
         <Fragment>
           <div className="cartPage">
             <div className="cartHeader">
-              <p>Product</p>
+              <p>Items</p>
               <p>Quantity</p>
               <p>Subtotal</p>
             </div>
@@ -95,7 +96,7 @@ const Cart = ({ history }) => {
               </div>
               <div></div>
               <div className="checkOutBtn">
-                <button onClick={checkoutHandler}>Check Out</button>
+                <button onClick={checkoutHandler}>Book Now</button>
               </div>
             </div>
           </div>

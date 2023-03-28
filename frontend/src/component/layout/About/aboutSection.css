@@ -14,6 +14,19 @@
     rgb(78, 81, 255),
     rgb(74, 137, 189)
   );
+  /* background-image: linear-gradient(
+    to bottom left,
+    #ff6347,
+    #c14e39
+  ); */
+}
+.aboutSectionGradient1 {
+  
+  background-image: linear-gradient(
+    to bottom left,
+    #ff6347,
+    #c14e39
+  );
 }
 
 .aboutSectionContainer {

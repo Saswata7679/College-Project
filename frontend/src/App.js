@@ -8,6 +8,9 @@ import Footer from "./component/layout/Footer/Footer";
 import Home from "./component/Home/Home";
 import ProductDetails from "./component/Product/ProductDetails";
 import Products from "./component/Product/Products";
+import Parts from "./component/Product/Parts"
+import PartDetails from "./component/Product/PartDetails"
+import PartList from "./component/Admin/partList";
 import Search from "./component/Product/Search";
 import LoginSignUp from "./component/User/LoginSignUp";
 import store from "./store";
@@ -33,6 +36,7 @@ import OrderDetails from "./component/Order/OrderDetails";
 import Dashboard from "./component/Admin/Dashboard.js";
 import ProductList from "./component/Admin/ProductList.js";
 import NewProduct from "./component/Admin/NewProduct";
+import NewPart from "./component/Admin/NewPart";
 import UpdateProduct from "./component/Admin/UpdateProduct";
 import OrderList from "./component/Admin/OrderList";
 import ProcessOrder from "./component/Admin/ProcessOrder";
@@ -42,7 +46,9 @@ import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
-
+import Test from "./component/Admin/TestList" 
+import UpdatePart from "./component/Admin/UpdatePart";
+import PartReviews from "./component/Admin/PartReviews";
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
@@ -83,7 +89,10 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/product/:id" component={ProductDetails} />
+        <Route exact path="/part/:id" component={PartDetails} />
         <Route exact path="/products" component={Products} />
+        <Route exact path="/parts" component={Parts} />
+        {/* <Route exact path="/product/:id" component={PartDetails} /> */}
         <Route path="/products/:keyword" component={Products} />
 
         <Route exact path="/search" component={Search} />
@@ -134,9 +143,21 @@ function App() {
         />
         <ProtectedRoute
           exact
+          path="/admin/parts"
+          isAdmin={true}
+          component={PartList}
+        />
+        <ProtectedRoute
+          exact
           path="/admin/product"
           isAdmin={true}
           component={NewProduct}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/part"
+          isAdmin={true}
+          component={NewPart}
         />
 
         <ProtectedRoute
@@ -144,6 +165,12 @@ function App() {
           path="/admin/product/:id"
           isAdmin={true}
           component={UpdateProduct}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/part/:id"
+          isAdmin={true}
+          component={UpdatePart}
         />
         <ProtectedRoute
           exact
@@ -178,6 +205,19 @@ function App() {
           isAdmin={true}
           component={ProductReviews}
         />
+        <ProtectedRoute
+          exact
+          path="/admin/partreviews"
+          isAdmin={true}
+          component={PartReviews}
+        />
+        <ProtectedRoute
+          exact
+          path="/admin/test"
+          isAdmin={true}
+          component={Test}
+        />
+
 
         <Route
           component={
@@ -185,7 +225,6 @@ function App() {
           }
         />
       </Switch>
-
       <Footer />
     </Router>
   );

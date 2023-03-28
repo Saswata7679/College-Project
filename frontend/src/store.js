@@ -19,7 +19,7 @@ import {
   userReducer,
 } from "./reducers/userReducer";
 
-import { cartReducer } from "./reducers/cartReducer";
+import { cartReducer,cartPartReducer } from "./reducers/cartReducer";
 import {
   allOrdersReducer,
   myOrdersReducer,
@@ -27,6 +27,23 @@ import {
   orderDetailsReducer,
   orderReducer,
 } from "./reducers/orderReducer";
+import {
+  newTestReducer,
+  productTestsReducer,
+  testReducer
+} from "./reducers/testReducer"
+
+import{
+partsReducer,
+newPartReducer,
+partReducer,
+partDetailsReducer,
+newPartReviewReducer,
+partReviewsReducer,
+reviewPartReducer
+} from "./reducers/partReducer"
+
+
 
 const reducer = combineReducers({
   products: productsReducer,
@@ -47,6 +64,19 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   productReviews: productReviewsReducer,
   review: reviewReducer,
+  newtest:newTestReducer,
+  producttests:productTestsReducer,
+  test:testReducer,
+
+
+  parts:partsReducer,
+  newPart:newPartReducer,
+  part:partReducer,
+  partDetails:partDetailsReducer,
+  newPartReview:newPartReviewReducer,
+  partReviews:partReviewsReducer,
+  reviewPart:reviewPartReducer,
+  cartPart:cartPartReducer
 });
 
 let initialState = {

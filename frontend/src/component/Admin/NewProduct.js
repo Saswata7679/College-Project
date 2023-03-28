@@ -12,6 +12,14 @@ import SpellcheckIcon from "@material-ui/icons/Spellcheck";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
+import BoltIcon from '@mui/icons-material/Bolt';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import SpeedIcon from '@mui/icons-material/Speed';
+import PropaneTankIcon from '@mui/icons-material/PropaneTank';
+import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
+import ShoppingBagTwoToneIcon from '@mui/icons-material/ShoppingBagTwoTone';
+import LocalGasStationIcon from '@mui/icons-material/LocalGasStation';
+
 
 const NewProduct = ({ history }) => {
   const dispatch = useDispatch();
@@ -23,18 +31,24 @@ const NewProduct = ({ history }) => {
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [torque, setTorque] = useState("");
+  const [engine, setEngine] = useState(0);
+  const [fuel, setFuel] = useState("");
+  const [mileage, setMileage] = useState("");
+  const [tank, setTank] = useState(0);
+  const [seat, setSeat] = useState(0);
+  const [boot, setBoot] = useState(0);
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
+
   const categories = [
-    "Laptop",
-    "Footwear",
-    "Bottom",
-    "Tops",
-    "Attire",
-    "Camera",
-    "SmartPhones",
+    "Maruti",
+  "Tata",
+  "Toyota",
+  "Mahindra",
+  "Hyundai"
   ];
 
   useEffect(() => {
@@ -60,6 +74,16 @@ const NewProduct = ({ history }) => {
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
+    myForm.set("torque",torque)
+    myForm.set("engine",engine)
+    myForm.set("fuel",fuel)
+    myForm.set("mileage",mileage)
+    myForm.set("tank",tank)
+    myForm.set("seat",seat)
+    myForm.set("boot",boot)
+
+
+
 
     images.forEach((image) => {
       myForm.append("images", image);
@@ -89,7 +113,7 @@ const NewProduct = ({ history }) => {
 
   return (
     <Fragment>
-      <MetaData title="Create Product" />
+      <MetaData title="Add Cars" />
       <div className="dashboard">
         <SideBar />
         <div className="newProductContainer">
@@ -98,7 +122,7 @@ const NewProduct = ({ history }) => {
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Product</h1>
+            <h1>Add Cars</h1>
 
             <div>
               <SpellcheckIcon />
@@ -149,10 +173,73 @@ const NewProduct = ({ history }) => {
               <input
                 type="number"
                 placeholder="Stock"
-                required
                 onChange={(e) => setStock(e.target.value)}
               />
             </div>
+            <div>
+              <BoltIcon/>
+              <input
+                type="text"
+                placeholder="torque (nm@rpm)"
+                onChange={(e) => setTorque(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              <SettingsSuggestIcon />
+              <input
+                type="number"
+                placeholder="engine Displacement (cc)"
+                onChange={(e) => setEngine(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              <LocalGasStationIcon />
+              <input
+                type="text"
+                placeholder="Fuel Type"
+                onChange={(e) => setFuel(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              < SpeedIcon />
+              <input
+                type="number"
+                placeholder="City Mileage(kmpl)"
+                onChange={(e) => setMileage(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              <PropaneTankIcon />
+              <input
+                type="number"
+                placeholder="Fuel Tank Capacity (Litres)"
+                onChange={(e) => setTank(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              <AirlineSeatReclineExtraIcon />
+              <input
+                type="number"
+                placeholder="Seating Capacity"
+                onChange={(e) => setSeat(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            <div>
+              <ShoppingBagTwoToneIcon />
+              <input
+                type="number"
+                placeholder="Boot Space (Litres)"
+                onChange={(e) => setBoot(e.target.value)}
+                // disabled={category==="Laptop"?true:false}
+              />
+            </div>
+            
 
             <div id="createProductFormFile">
               <input

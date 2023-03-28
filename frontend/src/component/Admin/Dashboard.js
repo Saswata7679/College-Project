@@ -8,12 +8,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
 import { getAllOrders } from "../../actions/orderAction.js";
 import { getAllUsers } from "../../actions/userAction.js";
+import { getAdminPart } from "../../actions/partAction.js";
 import MetaData from "../layout/MetaData";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
+  const { parts } = useSelector((state) => state.parts);
 
   const { orders } = useSelector((state) => state.allOrders);
 
@@ -32,6 +34,7 @@ const Dashboard = () => {
     dispatch(getAdminProduct());
     dispatch(getAllOrders());
     dispatch(getAllUsers());
+    dispatch(getAdminPart());
   }, [dispatch]);
 
   let totalAmount = 0;
@@ -52,16 +55,16 @@ const Dashboard = () => {
     ],
   };
 
-  const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
-    datasets: [
-      {
-        backgroundColor: ["#00A6B4", "#6800B4"],
-        hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [outOfStock, products.length - outOfStock],
-      },
-    ],
-  };
+  // const doughnutState = {
+  //   labels: ["Out of Stock", "InStock"],
+  //   datasets: [
+  //     {
+  //       backgroundColor: ["#00A6B4", "#6800B4"],
+  //       hoverBackgroundColor: ["#4B5000", "#35014F"],
+  //       data: [outOfStock, products.length - outOfStock],
+  //     },
+  //   ],
+  // };
 
   return (
     <div className="dashboard">
@@ -79,8 +82,12 @@ const Dashboard = () => {
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
-              <p>Product</p>
+              <p>Cars</p>
               <p>{products && products.length}</p>
+            </Link>
+            <Link to="/admin/parts">
+              <p>Parts</p>
+              <p>{parts && parts.length}</p>
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>
@@ -97,9 +104,9 @@ const Dashboard = () => {
           <Line data={lineState} />
         </div>
 
-        <div className="doughnutChart">
+        {/* <div className="doughnutChart">
           <Doughnut data={doughnutState} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

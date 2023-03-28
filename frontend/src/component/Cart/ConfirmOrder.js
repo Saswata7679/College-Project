@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 
 const ConfirmOrder = ({ history }) => {
+  // window.location.reload();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
 
@@ -24,6 +25,7 @@ const ConfirmOrder = ({ history }) => {
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
   const proceedToPayment = () => {
+    
     const data = {
       subtotal,
       shippingCharges,
@@ -32,9 +34,12 @@ const ConfirmOrder = ({ history }) => {
     };
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
-
+    
     history.push("/process/payment");
   };
+  function refreshPage(){ 
+    window.location.reload(); 
+}
 
   return (
     <Fragment>
@@ -65,7 +70,7 @@ const ConfirmOrder = ({ history }) => {
               {cartItems &&
                 cartItems.map((item) => (
                   <div key={item.product}>
-                    <img src={item.image} alt="Product" />
+                    <img src={item.image} alt="Product"/>
                     <Link to={`/product/${item.product}`}>
                       {item.name}
                     </Link>{" "}
@@ -73,6 +78,7 @@ const ConfirmOrder = ({ history }) => {
                       {item.quantity} X ₹{item.price} ={" "}
                       <b>₹{item.price * item.quantity}</b>
                     </span>
+                     
                   </div>
                 ))}
             </div>
@@ -103,7 +109,7 @@ const ConfirmOrder = ({ history }) => {
               </p>
               <span>₹{totalPrice}</span>
             </div>
-
+            
             <button onClick={proceedToPayment}>Proceed To Payment</button>
           </div>
         </div>

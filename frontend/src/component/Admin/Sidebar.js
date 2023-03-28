@@ -11,12 +11,12 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PeopleIcon from "@material-ui/icons/People";
 import RateReviewIcon from "@material-ui/icons/RateReview";
-
+import RequestPageIcon from '@mui/icons-material/RequestPage';
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <Link to="/">
-        <img src={logo} alt="Ecommerce" />
+        {/* <img src={logo} alt="Ecommerce" /> */}
       </Link>
       <Link to="/admin/dashboard">
         <p>
@@ -30,11 +30,17 @@ const Sidebar = () => {
         >
           <TreeItem nodeId="1" label="Products">
             <Link to="/admin/products">
-              <TreeItem nodeId="2" label="All" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="All Cars" icon={<PostAddIcon />} />
+            </Link>
+            <Link to="/admin/parts">
+              <TreeItem nodeId="2" label="All Parts" icon={<PostAddIcon />} />
             </Link>
 
             <Link to="/admin/product">
-              <TreeItem nodeId="3" label="Create" icon={<AddIcon />} />
+              <TreeItem nodeId="3" label="Add Cars" icon={<AddIcon />} />
+            </Link>
+            <Link to="/admin/part">
+              <TreeItem nodeId="3" label="Add Parts" icon={<AddIcon />} />
             </Link>
           </TreeItem>
         </TreeView>
@@ -53,7 +59,19 @@ const Sidebar = () => {
       <Link to="/admin/reviews">
         <p>
           <RateReviewIcon />
-          Reviews
+          Car Reviews
+        </p>
+      </Link>
+      {/* <Link to="/admin/partreviews">
+        <p>
+          <RateReviewIcon />
+          Part Reviews
+        </p>
+      </Link> */}
+      <Link to="/admin/test">
+        <p>
+          <RequestPageIcon />
+          Requests
         </p>
       </Link>
     </div>

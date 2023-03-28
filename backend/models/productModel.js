@@ -66,6 +66,29 @@ const productSchema = mongoose.Schema({
       },
     },
   ],
+    
+      engine: {
+        type: Number,
+      },
+      mileage:{
+        type: Number, 
+      },
+      fuel:{
+        type: String, 
+      },
+      tank: {
+        type: Number,
+      },
+      seat:{
+        type: Number, 
+      },
+      boot:{
+        type: Number, 
+      },
+      torque:{
+        type: String, 
+      },
+      
 
   user: {
     type: mongoose.Schema.ObjectId,

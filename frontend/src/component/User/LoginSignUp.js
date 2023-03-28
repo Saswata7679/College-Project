@@ -8,6 +8,8 @@ import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
+import loginsign from "../../images/loginsign.png"
+import logo from "../../images/logo.png"
 
 const LoginSignUp = ({ history, location }) => {
   const dispatch = useDispatch();
@@ -105,8 +107,11 @@ const LoginSignUp = ({ history, location }) => {
         <Loader />
       ) : (
         <Fragment>
+         
           <div className="LoginSignUpContainer">
+            
             <div className="LoginSignUpBox">
+           <a href="/"><img className="logoimg" src={logo}/></a> 
               <div>
                 <div className="login_signUp_toggle">
                   <p onClick={(e) => switchTabs(e, "login")}>LOGIN</p>
@@ -190,7 +195,10 @@ const LoginSignUp = ({ history, location }) => {
                 <input type="submit" value="Register" className="signUpBtn" />
               </form>
             </div>
+            <img className="loginsign" src={loginsign}/>
           </div>
+          
+          
         </Fragment>
       )}
     </Fragment>

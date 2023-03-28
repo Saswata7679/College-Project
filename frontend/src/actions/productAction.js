@@ -211,7 +211,7 @@ export const getAllReviews = (id) => async (dispatch) => {
   }
 };
 
-// Delete Review of a Product
+// Delete Reviews of a product
 export const deleteReviews = (reviewId, productId) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_REVIEW_REQUEST });

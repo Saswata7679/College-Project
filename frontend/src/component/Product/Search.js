@@ -9,18 +9,19 @@ const Search = ({ history }) => {
     e.preventDefault();
     if (keyword.trim()) {
       history.push(`/products/${keyword}`);
-    } else {
+    } 
+    else {
       history.push("/products");
     }
   };
 
   return (
     <Fragment>
-      <MetaData title="Search A Product -- ECOMMERCE" />
+      <MetaData title="Search A Car -- CARSELLER" />
       <form className="searchBox" onSubmit={searchSubmitHandler}>
         <input
           type="text"
-          placeholder="Search a Product ..."
+          placeholder="Search a Car ..."
           onChange={(e) => setKeyword(e.target.value)}
         />
         <input type="submit" value="Search" />
