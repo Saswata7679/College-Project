@@ -4,6 +4,14 @@
   background-color: white;
 }
 
+/* .createProductBtn{
+  padding-top: 50%;
+} */
+
+/* .updateOrderForm{
+  margin-top: 50%;
+} */
+
 .updateOrderForm > div {
   display: flex;
   width: 100%;

@@ -2,6 +2,7 @@ const Order = require("../models/orderModel");
 const Product = require("../models/productModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const Part=require("../models/partModel")
 
 // Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
@@ -92,6 +93,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   if (req.body.status === "Shipped") {
     order.orderItems.forEach(async (o) => {
       await updateStock(o.product, o.quantity);
+      // await updatePartStock(o.part, o.quantity);
     });
   }
   order.orderStatus = req.body.status;
@@ -113,6 +115,13 @@ async function updateStock(id, quantity) {
 
   await product.save({ validateBeforeSave: false });
 }
+// async function updatePartStock(id, quantity) {
+//   const part = await Part.findById(id);
+
+//   part.Stock -= quantity;
+
+//   await part.save({ validateBeforeSave: false });
+// }
 
 // delete Order -- Admin
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {

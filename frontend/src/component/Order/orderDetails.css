@@ -1,6 +1,27 @@
 .orderDetailsPage {
   background-color: white;
 }
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #d96e34;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #fa8b3c;
+  background-image: -webkit-linear-gradient(top, #fa8b3c, #d99734);
+  background-image: -moz-linear-gradient(top, #fa8b3c, #d99734);
+  background-image: -ms-linear-gradient(top, #fa8b3c, #d99734);
+  background-image: -o-linear-gradient(top, #fa8b3c, #d99734);
+  background-image: linear-gradient(to bottom, #fa8b3c, #d99734);
+  text-decoration: none;
+}
 
 .orderDetailsContainer > h1 {
   font: 300 3vmax "Roboto";

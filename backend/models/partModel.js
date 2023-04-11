@@ -38,8 +38,6 @@ const partSchema = mongoose.Schema({
   Stock: {
     type: Number,
     required: [true, "Please Enter partt Stock"],
-    maxLength: [4, "Stock cannot exceed 4 characters"],
-    default: 1,
   },
   numOfReviews: {
     type: Number,

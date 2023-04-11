@@ -53,9 +53,11 @@ const OrderDetails = ({ match }) => {
           <MetaData title="Order Details" />
           <div className="orderDetailsPage">
             <div className="orderDetailsContainer">
+            {/* <button className="btn" onClick={() => window.print()}>Take a Print</button> */}
               <Typography component="h1">
                 Order #{order && order._id}
               </Typography>
+              <button className="btn" onClick={() => window.print()}>Take a Print</button>
               <Typography>Shipping Info</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
@@ -100,7 +102,7 @@ const OrderDetails = ({ match }) => {
                 </div>
               </div>
 
-              <Typography>Order Status</Typography>
+              {/* <Typography>Order Status</Typography>
               <div className="orderDetailsContainerBox">
                 <div>
                   <p
@@ -131,7 +133,7 @@ const OrderDetails = ({ match }) => {
     </div>}
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="orderDetailsCartItems">
@@ -152,6 +154,7 @@ const OrderDetails = ({ match }) => {
                   ))}
               </div>
             </div>
+           
           </div>
         </Fragment>
       )}

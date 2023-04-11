@@ -52,17 +52,17 @@ const OrderList = ({ history }) => {
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
 
-    {
-      field: "status",
-      headerName: "Status",
-      minWidth: 150,
-      flex: 0.5,
-      cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
-      },
-    },
+    // {
+    //   field: "status",
+    //   headerName: "Status",
+    //   minWidth: 150,
+    //   flex: 0.5,
+    //   cellClassName: (params) => {
+    //     return params.getValue(params.id, "status") === "Delivered"
+    //       ? "greenColor"
+    //       : "redColor";
+    //   },
+    // },
     {
       field: "itemsQty",
       headerName: "Items Qty",

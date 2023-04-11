@@ -114,7 +114,7 @@ const ProcessOrder = ({ history, match }) => {
                     </div>
                   </div>
 
-                  <Typography>Order Status</Typography>
+                  {/* <Typography>Order Status</Typography>
                   <div className="orderDetailsContainerBox">
                     <div>
                       <p
@@ -127,10 +127,10 @@ const ProcessOrder = ({ history, match }) => {
                         {order.orderStatus && order.orderStatus}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="confirmCartItems">
-                  <Typography>Your Cart Items:</Typography>
+                  <Typography>Cart Items:</Typography>
                   <div className="confirmCartItemsContainer">
                     {order.orderItems &&
                       order.orderItems.map((item) => (
@@ -156,10 +156,11 @@ const ProcessOrder = ({ history, match }) => {
               >
                 <form
                   className="updateOrderForm"
-                  onSubmit={updateOrderSubmitHandler}
+                  // onSubmit={updateOrderSubmitHandler}
+                  // action="mailto:${order.user.email}"
                 >
-                  <h1>Process Order</h1>
-
+                  {/* <h1>Process Order</h1> */}
+{/* 
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
@@ -172,16 +173,18 @@ const ProcessOrder = ({ history, match }) => {
                         <option value="Delivered">Delivered</option>
                       )}
                     </select>
-                  </div>
+                  </div> */}
 
                   <Button
                     id="createProductBtn"
                     type="submit"
-                    disabled={
-                      loading ? true : false || status === "" ? true : false
-                    }
+                    onClick={() => window.location = `mailto:${order.user.email}`}
+                    // disabled={
+                    //   loading ? true : false || status === "" ? true : false
+                    // }
                   >
-                    Process
+                    Send Mail
+                    {/* {order.user.email} */}
                   </Button>
                 </form>
               </div>
